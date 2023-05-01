@@ -33,3 +33,10 @@ class Cheat_Loaded_Dice(Player): # inheritance of Player
                 self.dice[i] += 1
             i += 1
 
+class Cheat_Saboteur(Player):
+    def cheat(self, other_player):
+        i = 0
+        while i < len(other_player.dice):
+            if other_player.dice[i] > 1:
+                other_player.dice[i] -= 1
+            i += 1
