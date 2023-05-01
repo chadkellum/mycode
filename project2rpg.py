@@ -184,16 +184,14 @@ while True:
         else:
             if 'locked' in rooms[currentRoom] and rooms[currentRoom]['locked'] == True:
                 print(f"The door is locked. You must find another way or find a key.")
-
-                if len(move) > 1 and move[1] in rooms[currentRoom]["exits"]:
-                    if 'keys' in inventory:
+                if 'keys' in inventory:
                         print("You use the keys to unlock the door.")
                         rooms[currentRoom]['locked'] = False
+                                       
                 # not removing keys because they can be used as a weapon.
-                    else:
-                        print("You do not have the keys. But that won't hold you back for long. Kelsier said even the water we drink has trace metals that might be worth burning.")
                 else:
-                    print("You can't go that way!")
+                     print("You do not have the keys. But that won't hold you back for long. Kelsier said even the water we drink has trace metals that might be worth burning.")
+                
             elif len(move) > 1 and move[1] in rooms[currentRoom]["exits"]:
                 currentRoom = rooms[currentRoom]["exits"][move[1]]
             else:
