@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Country Finder</title>
+    <link rel="stylesheet" href="/static/styles.css"/>
+  </head>
+  <body>
+    <header>
+      <h1>Country Finder</h1>
+      <h3>Find the country code (XX), and the Longitude and Latitude.</h3>
+      <iframe
+        src="https://giphy.com/embed/MxSfoCowbonmd5bkvV"
+        width="360"
+        height="200"
+        frameborder="0"
+        class="giphy-embed"
+        allowfullscreen
+      ></iframe>
+      <p>
+        <a
+          href="https://giphy.com/gifs/TOSOC-united-flags-coexist-MxSfoCowbonmd5bkvV"
+          >via GIPHY</a
+        >
+      </p>
+    </header>
+    <section>
+      <div>
+      <form action="/countrychoice" method="POST">
+        <p>Enter name of the country you are looking for:</p>
+        <p><input type="text" name="countryname" /></p>
+        <p><input type="submit" value="submit" /></p>
+      </form>
+      </div>
+      <div>
+      <form action="/country" method="POST">
+        <p>Random Country</p>
+        <input type="submit" value="submit">
+      </form>
+      </div>
+    </section>
+    <!-- <img src="https://flagsapi.com/:country_code/flat/64.png" /> -->
+  </body>
+</html>

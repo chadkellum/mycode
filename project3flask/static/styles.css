@@ -1,0 +1,18 @@
+header{
+    margin-top: 5vh;
+    text-align: center;
+  
+}
+body{
+    background-color: rgb(39, 39, 39);
+    color: aliceblue;
+   
+    
+}
+section{
+    display: flex;
+    justify-content: center;
+    align-content: space-between;
+    margin-top: 5vh;
+    padding: 5px;
+}
