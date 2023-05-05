@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Results</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body id="display">
+    <section>
+    <h1>{{ countrydict['name'] }}    ({{ countrydict['country'] }})</h1>
+    <img src="https://flagsapi.com/{{ countrydict['country'] }}/flat/64.png"/>
+    <h3>Latitude: {{ countrydict['latitude'] }}</h3>
+    <h3>Longitude: {{ countrydict['longitude'] }}</h3>
+    </section>
+</body>
+</html>
+

@@ -13,16 +13,7 @@ app= Flask(__name__, template_folder='templates', static_folder='static')
 
 @app.route("/data")
 def alldata():
-    
-    url = "http:/127.0.0.1:2224/data"
-    response= requests.get(url)
-
-    data= response.json()
-
-    for country in data:
-        print(f"""{country['name']} -- {country['country']}, 
-        {country['latitude']}, {country['longitude']}""")
-        
+    return data
 
 @app.route("/")
 def landingpage():
@@ -34,23 +25,20 @@ def countrychoice():
         # if a value was posted, grab that value and put it in a variable
     if pick:
         for country in data:
-            if country["name"] == pick:
-                return json.dumps(country)
-        return redirect(url_for(randomcountry))
+            if country["name"].lower() == pick.lower():
+                return render_template("countrydisplay.html", countrydict= country)
+        return redirect(url_for("randomcountry"))
         
     else: 
         return "Please enter a country name."
-            
-
 
 @app.route("/country")
 def randomcountry():
     """returns a random country"""
-    if request.form["country"]:
-        randomcountry = random.choice(country)
-    return json.dumps(randomcountry)
+    randomcountry = random.choice(data)
+    return render_template("countrydisplay.html", countrydict= randomcountry)
 
-flag= f'<img src="https://flagsapi.com/{'country'}/flat/64.png" />'
+
 
 if __name__ == "__main__":
     app.run(host= "0.0.0.0", port=2224, debug=True)
