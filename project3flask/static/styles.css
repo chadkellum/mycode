@@ -9,10 +9,9 @@ body{
    
     
 }
-section{
-    display: flex;
-    justify-content: center;
-    align-content: space-between;
+div{
+    
+    text-align: center;
     margin-top: 5vh;
     padding: 5px;
 }

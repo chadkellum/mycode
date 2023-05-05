@@ -11,6 +11,18 @@ with open("country.json", "r") as foo:
 
 app= Flask(__name__, template_folder='templates', static_folder='static')
 
+@app.route("/data")
+def alldata():
+    
+    url = "http:/127.0.0.1:2224/data"
+    response= requests.get(url)
+
+    data= response.json()
+
+    for country in data:
+        print(f"""{country['name']} -- {country['country']}, 
+        {country['latitude']}, {country['longitude']}""")
+        
 
 @app.route("/")
 def landingpage():
@@ -37,6 +49,8 @@ def randomcountry():
     if request.form["country"]:
         randomcountry = random.choice(country)
     return json.dumps(randomcountry)
+
+flag= f'<img src="https://flagsapi.com/{'country'}/flat/64.png" />'
 
 if __name__ == "__main__":
     app.run(host= "0.0.0.0", port=2224, debug=True)
