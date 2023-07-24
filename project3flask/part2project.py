@@ -1,6 +1,6 @@
 import requests
 
-url = "http://127.0.0.1:2224/data"
+url = "http://127.0.0.1:5000/data"
 response= requests.get(url)
 
 data= response.json()
